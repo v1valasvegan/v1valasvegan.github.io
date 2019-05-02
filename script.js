@@ -1,99 +1,78 @@
-const body = document.body;
-const button = document.querySelector('.button');
-const menuCanvas = document.querySelector('.menu-canvas')
-const gameCanvas = document.querySelector('.game-canvas');
+const buttonMenu = document.querySelector('.button_menu');
+const buttonTable = document.querySelector('.button_table');
+const easy = document.getElementById('easy');
+const medium = document.getElementById('medium');
+const hard = document.getElementById('hard');
+const hardGame = document.querySelector('.section_hard');
+const mediumGame = document.querySelector('.section_medium');
+const easyGame = document.querySelector('.section_easy');
 const cards = document.querySelectorAll('.card');
-const david = document.getElementById('david');
-const nina = document.getElementById('nina');
-const philip = document.getElementById('philip');
-const cardsDavid = document.querySelectorAll('.card_david');
-const cardsNina = document.querySelectorAll('.card_nina');
-const cardsPhilip = document.querySelectorAll('.card_philip');
-const bubbles = document.querySelector('.bubbles');
-let numberOfCards;
+const easyCards = document.querySelectorAll('.easy')
+const mediumCards = document.querySelectorAll('.medium');
+const hardCards = document.querySelectorAll('.hard');
+const menu = document.querySelector('.menu');
+const table = document.querySelector('.table');
+const tableSection = document.querySelectorAll('.table_section')
 let bugNumber;
-let jedi;
-const audio = document.querySelector('.audio');
-function setNumberOfCards() {
-    if (david.checked) {
-        return 3;
-    } else if(nina.checked) {
-        return 6;
-    } else if(philip.checked) {
-        return 9;
+function showCards() {
+    if(easy.checked) {
+        easyGame.classList.toggle('hidden');
+    } else if(medium.checked) {
+        mediumGame.classList.toggle('hidden');
+    } else if(hard.checked) {
+        hardGame.classList.toggle('hidden');
     }
 };
-function getBugNumber(max) {
-    return Math.floor(Math.random() * Math.floor(max));
-};
-function revealCards(cardsArray) {
-    cardsArray.forEach(function(item, i, arr) {
-        item.classList.toggle('hidden');
-    });
-    };
-function dealCards () {
-    if(david.checked) {
-        revealCards(cardsDavid);
-    } else if(nina.checked) {
-        revealCards(cardsNina);
-    } else if(philip.checked) {
-        revealCards(cardsPhilip)
-    };
-};
-function setBugCard(index) {
-    if(david.checked) {
-        cardsDavid[index].classList.add('bug'); 
-    } else if(nina.checked) { 
-        cardsNina[index].classList.add('bug');
-    } else if(philip.checked) {
-        cardsPhilip[index].classList.add('bug');
-    };
-};
-function setAudio(audioObj) {
-    if(david.checked) {
-        audio.setAttribute('src', './sound/david.mp3');
-    } else if(nina.checked) {
-        audio.setAttribute('src', './sound/nina.mp3');
-    } else if(philip.checked) {
-        audio.setAttribute('src', './sound/philip.mp3');
-    }
-};
-function loadNewGame() {
-    setAudio();
-    audio.play();
-    menuCanvas.classList.toggle('hidden');
-    gameCanvas.classList.toggle('hidden');
-    cards.forEach(item => item.classList.add('hidden'));
-    cards.forEach(item => item.removeEventListener('click', loadMenu));
-    cards.forEach(item => item.classList.add('card_reverse'));
-    numberOfCards = setNumberOfCards();
-    bugNumber = getBugNumber(numberOfCards);
-    dealCards();
-    setBugCard(bugNumber);
-    bubbles.innerHTML = 'Слухи дошли до меня, что экстрасенс великий ты. Карту выбери с багом,и хорош ли как говорят о тебе ты посмотрим мы.'
+function loadTable() {
+    menu.classList.toggle('hidden', true);
+    table.classList.toggle('hidden', false);
 };
 function loadMenu() {
-    menuCanvas.classList.toggle('hidden');
-    gameCanvas.classList.toggle('hidden');
-    david.checked = true;
+    menu.classList.toggle('hidden', false);
+    table.classList.toggle('hidden', true);
 }
-function addLoadMenuOnClick(item) {
-    item.addEventListener('click', loadMenu);
+function setBugCard() {
+    if(easy.checked) {
+        bugNumber = Math.floor(Math.random() * 3);
+        easyCards[bugNumber].classList.add('bug');
+    } else if(medium.checked) {
+        bugNumber = Math.floor(Math.random() * 6);
+        mediumCards[bugNumber].classList.add('bug');
+    } else if(hard.checked) {
+        bugNumber = Math.floor(Math.random() * 10);
+        hardCards[bugNumber].classList.add('bug');
+    }
 };
-function saysJoda() {
-    if(jedi) {
-        bubbles.innerHTML = 'Умный сильно ты до фига? На карту нажми любую и еще испытай свои силы раз.';
-    } else {
-        bubbles.innerHTML = 'Курс начальный пройди от нуля до Всемирной Сети Героя в школе webheroschool.ru и приходи потом снова.'
-    };
-}
-    
-button.addEventListener('click', loadNewGame);
-cards.forEach(function(item) {
-    item.addEventListener('click', function() {
-        item.classList.toggle('card_reverse')
-        cards.forEach(addLoadMenuOnClick);
-        jedi = (item.classList.contains('bug')) ? true: false;
-        saysJoda();
+function turnCard() {
+    this.classList.toggle('card_reverse');
+    cards.forEach(function(item) {
+        item.addEventListener('click', loadNewGame);
+        item.removeEventListener('click', turnCard);
+
+    })
+};
+function reset() {
+    cards.forEach(function(item) {
+    item.classList.add('hidden');
+    item.classList.remove('bug');
+    item.classList.remove('card_reverse');
+    item.removeEventListener('click', turnCard);
+    item.removeEventListener('click', loadNewGame);
+    setTimeout(() =>item.classList.remove('hidden'), 200);
     });
-});
+    tableSection.forEach(item => item.classList.add('hidden'));
+
+}
+function loadNewGame() {
+    reset();
+    loadTable();
+    showCards();
+    setBugCard();
+    cards.forEach(function(item) {
+        item.addEventListener('click', turnCard);
+        item.removeEventListener('click', loadMenu);
+    })
+};
+buttonMenu.addEventListener('click', loadNewGame);
+buttonMenu.addEventListener('click', loadTable)
+buttonTable.addEventListener('click', loadMenu);
