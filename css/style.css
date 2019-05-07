@@ -1,0 +1,528 @@
+/* body{
+	text-align: center;
+	border: 1px solid grey;
+}
+*/
+
+svg {  
+	min-width: 900px;
+	margin-right: 10%;
+	margin-left: 10%;
+}
+
+
+/* @keyframes shipy {
+	0% {
+		transform: translateY(0)
+	}
+	45% {
+		transform: translateY(60px)
+	}
+} */
+
+@keyframes ufo {
+	0% {
+		transform: rotate(0);
+		animation-timing-function: cubic-bezier(.34, .15, .61, 1)
+	}
+	20% {
+		transform: rotate(-5deg);
+		animation-timing-function: cubic-bezier(.34, .15, .61, 1)
+	}
+	65% {
+		transform: rotate(6deg);
+		animation-timing-function: linear
+	}
+}
+
+@keyframes ufowin {
+	0%,
+	to {
+		transform: translateX(0) translateY(0)
+	}
+	50% {
+		transform: translateX(33px) translateY(-4px)
+	}
+}
+
+@keyframes ufowinscale {
+	0%,
+	50%,
+	to {
+		transform: scaleX(1)
+	}
+	25%,
+	75% {
+		transform: scaleX(1.2)
+	}
+}
+
+@keyframes beamfront {
+	0%,
+	to {
+		transform: scaleX(1) skewX(0) skewY(0)
+	}
+	45% {
+		transform: scaleX(1.6) skewX(2deg) skewY(1.4deg) rotate(-4deg) translateX(-8px)
+	}
+	0%,
+	25%,
+	50%,
+	75%,
+	to {
+		opacity: .5
+	}
+	12.5%,
+	37.5%,
+	62%,
+	87.5% {
+		opacity: .9
+	}
+}
+
+@keyframes beamfront2 {
+	0%,
+	to {
+		transform: scaleX(1) skewX(0) skewY(0)
+	}
+	45% {
+		transform: scaleX(1.6) skewX(1deg) rotate(-10deg) translateX(-10px) translateY(-2px)
+	}
+	0%,
+	25%,
+	50%,
+	75%,
+	to {
+		opacity: .9
+	}
+	12.5%,
+	37.5%,
+	62%,
+	87.5% {
+		opacity: .5
+	}
+}
+
+@keyframes moonwalk {
+	0% {
+		transform: rotate(0deg)
+	}
+	10.6% {
+		transform: rotate(-30deg)
+	}
+	to {
+		transform: rotate(360deg)
+	}
+}
+
+@keyframes starblink {
+	0% {
+		transform: rotate(0deg) scale(0);
+		opacity: 0
+	}
+	5.3% {
+		transform: rotate(45deg) scale(1.1)
+	}
+	10.6% {
+		transform: rotate(90deg) scale(0);
+		opacity: 1
+	}
+	.05% {
+		opacity: 1
+	}
+	11%,
+	to {
+		opacity: 0
+	}
+}
+
+@keyframes shootingstar {
+	2.27% {
+		stroke-dashoffset: 0
+	}
+	4.54%,
+	to {
+		stroke-dashoffset: -200
+	}
+}
+
+@keyframes shootingstar22 {
+	2.27% {
+		stroke-dashoffset: 0
+	}
+	4.54%,
+	to {
+		stroke-dashoffset: -500
+	}
+}
+
+@keyframes shootingstar6 {
+	2.27% {
+		stroke-dashoffset: 0
+	}
+	4.54%,
+	to {
+		stroke-dashoffset: -220
+	}
+}
+
+@keyframes clouds {
+	50% {
+		transform: translateX(-50px)
+	}
+	to {
+		transform: translateX(0)
+	}
+}
+
+  .shipy {
+	animation-name: shipy;
+	animation-timing-function: ease-in-out
+}
+
+  #Window,
+  .shipy,
+  .ufo {
+	animation-iteration-count: infinite;
+	animation-duration: 2.68s
+}
+
+  .ufo {
+	transform-origin: 312.8px 175.2px;
+	animation-name: ufo
+}
+
+  #Window {
+	animation-name: ufowin;
+	animation-timing-function: ease-in-out
+}
+
+  .beams,
+  .beams2,
+  .themoon,
+  .winscale {
+	animation-name: ufowinscale;
+	animation-iteration-count: infinite;
+	animation-duration: 2.68s;
+	animation-timing-function: ease-in-out;
+	transform-origin: 312.8px
+}
+
+  .beams,
+  .beams2,
+  .themoon {
+	animation-name: beamfront;
+	transform-origin: 312.8px 175.2px
+}
+
+  .beams2,
+  .themoon {
+	animation-name: beamfront2;
+	transform-origin: 312.8px 185.2px
+}
+
+  .themoon {
+	animation-name: moonwalk;
+	animation-duration: 2.64s;
+	animation-timing-function: ease-out;
+	transform-origin: 626px 192px
+}
+
+  .star1,
+  .star2,
+  .star3,
+  .star4,
+  .star5,
+  .star6 {
+	animation-name: starblink;
+	animation-iteration-count: infinite;
+	animation-duration: 2.64s;
+	animation-timing-function: ease-in-out;
+	transform-origin: 441.25px 278.7px;
+	animation-delay: 0s;
+	opacity: 0
+}
+
+  .star2,
+  .star3,
+  .star4,
+  .star5,
+  .star6 {
+	transform-origin: 125.8px 315.75px;
+	animation-delay: .28s
+}
+
+  .star3,
+  .star4,
+  .star5,
+  .star6 {
+	transform-origin: 713.65px 178.1px;
+	animation-delay: .84s
+}
+
+  .star4,
+  .star5,
+  .star6 {
+	transform-origin: 732px 418.85px;
+	animation-delay: 1.36s
+}
+
+  .star5,
+  .star6 {
+	transform-origin: 168.3px 194.7px;
+	animation-delay: 1.64s
+}
+
+  .star6 {
+	transform-origin: 552.1px 174.7px;
+	animation-delay: 2.16s
+}
+
+  #LaserLine_1,
+  #LaserLine_2,
+  #LaserLine_3,
+  #LaserLine_4,
+  #LaserLine_5 {
+	animation-name: shootingstar;
+	animation-iteration-count: infinite;
+	animation-duration: 2.64s;
+	animation-timing-function: linear;
+	stroke-dasharray: 200;
+	stroke-dashoffset: 200;
+	animation-fill-mode: forwards;
+	animation-delay: .12s
+}
+
+  #LaserLine_2,
+  #LaserLine_3,
+  #LaserLine_4,
+  #LaserLine_5 {
+	animation-delay: .24s
+}
+
+  #LaserLine_3,
+  #LaserLine_4,
+  #LaserLine_5 {
+	animation-delay: .36s
+}
+
+  #LaserLine_4,
+  #LaserLine_5 {
+	animation-delay: .48s
+}
+
+  #LaserLine_5 {
+	animation-delay: .6s
+}
+
+  #LaserLine_10,
+  #LaserLine_6,
+  #LaserLine_7,
+  #LaserLine_8,
+  #LaserLine_9 {
+	animation-name: shootingstar6;
+	animation-iteration-count: infinite;
+	animation-duration: 2.64s;
+	animation-timing-function: linear;
+	stroke-dasharray: 220;
+	stroke-dashoffset: 220;
+	animation-fill-mode: forwards;
+	animation-delay: .72s
+}
+
+  #LaserLine_10,
+  #LaserLine_7,
+  #LaserLine_8,
+  #LaserLine_9 {
+	animation-name: shootingstar;
+	stroke-dasharray: 200;
+	stroke-dashoffset: 200;
+	animation-delay: .84s
+}
+
+  #LaserLine_10,
+  #LaserLine_8,
+  #LaserLine_9 {
+	animation-delay: .96s
+}
+
+  #LaserLine_10,
+  #LaserLine_9 {
+	animation-delay: 1.08s
+}
+
+  #LaserLine_10 {
+	animation-delay: 1.2s
+}
+
+  #LaserLine_11,
+  #LaserLine_12,
+  #LaserLine_13,
+  #LaserLine_14,
+  #LaserLine_15,
+  #LaserLine_16,
+  #LaserLine_17 {
+	animation-name: shootingstar;
+	animation-iteration-count: infinite;
+	animation-duration: 2.64s;
+	animation-timing-function: linear;
+	stroke-dasharray: 200;
+	stroke-dashoffset: 200;
+	animation-fill-mode: forwards;
+	animation-delay: 1.32s
+}
+
+  #LaserLine_12,
+  #LaserLine_13,
+  #LaserLine_14,
+  #LaserLine_15,
+  #LaserLine_16,
+  #LaserLine_17 {
+	animation-delay: 1.44s
+}
+
+  #LaserLine_13,
+  #LaserLine_14,
+  #LaserLine_15,
+  #LaserLine_16,
+  #LaserLine_17 {
+	animation-delay: 1.56s
+}
+
+  #LaserLine_14,
+  #LaserLine_15,
+  #LaserLine_16,
+  #LaserLine_17 {
+	animation-delay: 1.68s
+}
+
+  #LaserLine_15,
+  #LaserLine_16,
+  #LaserLine_17 {
+	animation-delay: 1.8s
+}
+
+  #LaserLine_16,
+  #LaserLine_17 {
+	animation-delay: 1.92s
+}
+
+  #LaserLine_17 {
+	animation-delay: 2.02s
+}
+
+  #LaserLine_18,
+  #LaserLine_19,
+  #LaserLine_20,
+  #LaserLine_21,
+  #LaserLine_22,
+  #LaserLine_23,
+  #LaserLine_24 {
+	animation-name: shootingstar;
+	animation-iteration-count: infinite;
+	animation-duration: 2.64s;
+	animation-timing-function: linear;
+	stroke-dasharray: 200;
+	stroke-dashoffset: 200;
+	animation-fill-mode: forwards;
+	animation-delay: 2.14s
+}
+
+  #LaserLine_19,
+  #LaserLine_20,
+  #LaserLine_21,
+  #LaserLine_22,
+  #LaserLine_23,
+  #LaserLine_24 {
+	animation-delay: 2.26s
+}
+
+  #LaserLine_20,
+  #LaserLine_21,
+  #LaserLine_22,
+  #LaserLine_23,
+  #LaserLine_24 {
+	animation-delay: 2.38s
+}
+
+  #LaserLine_21,
+  #LaserLine_22,
+  #LaserLine_23,
+  #LaserLine_24 {
+	animation-delay: 2.5s
+}
+
+  #LaserLine_22,
+  #LaserLine_23,
+  #LaserLine_24 {
+	animation-name: shootingstar22;
+	stroke-dasharray: 500;
+	stroke-dashoffset: 500;
+	animation-delay: 2.64s
+}
+
+  #LaserLine_23,
+  #LaserLine_24 {
+	animation-name: shootingstar;
+	stroke-dasharray: 200;
+	stroke-dashoffset: 200;
+	animation-delay: 2.26s
+}
+
+  #LaserLine_24 {
+	animation-delay: 2.64s
+}
+
+  #Cloud1,
+	#Cloud2,
+	#Cloud1-2,
+	#Cloud2-2,
+	#Cloud2-3 {
+	animation-name: clouds;
+	animation-iteration-count: infinite;
+	animation-duration: 2.64s;
+	animation-timing-function: ease-in-out;
+	transform-origin: 200px 425px
+}
+
+	#Cloud2,
+	#Cloud2-2,
+	#Cloud2-3 {
+	transform-origin: 450px 385px
+}
+
+
+/* new code */
+
+
+.button {
+	padding: 10px 20px;
+	border: 2px solid red;
+	border-radius: 10px;
+	background-color: #fff;
+}
+
+.button:hover,
+.button:focus {
+	opacity: 0.8;
+	cursor: pointer;
+}
+
+.button:active {
+	opacity: 0.5;
+}
+
+@media (max-width: 1024px) {
+	svg {
+		margin: 0;
+	}
+}
+
+@media (max-width: 900px) {
+	svg {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
