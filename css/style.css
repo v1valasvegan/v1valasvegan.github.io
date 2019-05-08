@@ -1,10 +1,7 @@
-/* body{
-	text-align: center;
-	border: 1px solid grey;
-}
-*/
+
 
 svg {  
+	justify-self: center;
 	min-width: 900px;
 	margin-right: 10%;
 	margin-left: 10%;
@@ -494,8 +491,15 @@ svg {
 
 /* new code */
 
+.main {
+	display: grid;
+	/* flex-direction: column; */
+}
 
 .button {
+	
+	justify-self: center;
+	max-width: 250px;
 	padding: 10px 20px;
 	border: 2px solid red;
 	border-radius: 10px;
