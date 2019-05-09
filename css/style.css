@@ -525,3 +525,22 @@
 	.modal {
 		display: none;
 	}
+
+	@media (max-width: 1024px) {
+		/* svg {
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		.main {
+			display: block;
+		} */
+		body {
+			width: 100vw;
+		}
+	}
+	.main {
+		overflow: hidden;
+	}
