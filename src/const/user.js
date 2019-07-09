@@ -1,0 +1,1 @@
+export const user = 'v1valasvegan';

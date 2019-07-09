@@ -1,0 +1,54 @@
+.form {
+    display: flex;
+    margin-top: auto;
+    box-sizing: border-box;
+}
+.input {
+    margin-right: 8px;
+    border: 1px solid #cccccc;
+    border-radius: 41px;
+    padding: 10px 12px;
+    flex-grow: 1;
+}
+
+.input:invalid {
+    box-shadow: none;
+}
+
+.button_add {
+    width: 36px;
+    height: 36px;
+    background: url('../../img/button-add.svg');
+    border: none;
+}
+
+.button_add:hover {
+    cursor: pointer;
+}
+
+.snafu {
+position: relative;
+}
+
+.snafu::before {
+    position: absolute;
+    top: -58px;
+    content: 'Такая задача уже есть. Неужели нельзя что-то новое придумать?';
+    width: 242px;
+    padding: 8px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #356eff;
+    border-radius: 6px;
+}
+
+.snafu::after {
+    position: absolute;
+    content: '';
+    width: 13px;
+    height: 7px;
+    top: -10px;
+    left: 20px;
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    background-color: #356eff;
+}

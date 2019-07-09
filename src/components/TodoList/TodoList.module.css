@@ -1,0 +1,48 @@
+.section {
+  height: 547px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-list {
+  padding: 0;
+  list-style: none;
+  overflow: auto;
+  margin-bottom: 28px;
+}
+
+.item {
+  border: 1px solid #cccccc;
+  border-radius: 41px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+}
+
+.item:hover,
+.item:focus {
+  border-color: #356eff;
+}
+
+.div_snafu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 24px;
+    flex-grow: 1;
+}
+
+.subheading {
+    font-size: 18px;
+    margin: 0;
+}
+
+.paragraph {
+    font-size: 14px;
+    color: #999;
+}
+
+.snafu {
+    margin-bottom: 10px;
+}

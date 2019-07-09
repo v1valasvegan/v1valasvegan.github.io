@@ -1,0 +1,48 @@
+.wrapper {
+    display: flex;
+}
+
+.checkbox {
+    display: none;
+}
+
+.label {
+    position: relative;
+    padding-left: 38px;
+}
+
+.label:hover {
+    cursor: pointer;
+}
+
+.checkbox:checked + .label {
+    color: #ccc;
+    text-decoration: line-through;
+}
+
+.checkbox + label::before {
+    position: absolute;
+    left: 13px;
+    top: 1px;
+    content: '';
+    width: 18px;
+    height: 17px;
+    background: url('../../img/checkbox-empty.svg') center center no-repeat;
+}
+
+.checkbox:checked + label:before {
+    background: url('../../img/checkbox-checked.svg') center center no-repeat;
+}
+
+.button_delete {
+    margin-left: auto;
+    width: 16px;
+    height: 16px;
+    border: none;
+    background: url('../../img/button-delete.svg') center center no-repeat;
+}
+
+.button_delete:hover {
+    cursor: pointer;
+}
+
